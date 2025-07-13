@@ -2,6 +2,9 @@ package com.example.ecommercespring.configuration;
 
 import com.example.ecommercespring.gateway.api.IFakeStoreCategoryApi;
 import com.example.ecommercespring.gateway.api.IFakeStoreProductApi;
+import com.google.gson.Gson;
+import okhttp3.OkHttp;
+import okhttp3.OkHttpClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,4 +35,14 @@ public class RetrofitConfig {
     return retrofit.create(IFakeStoreProductApi.class);
   }
 
+
+  @Bean
+  public OkHttpClient okHttp() {
+    return new OkHttpClient();
+  }
+
+  @Bean
+  public Gson gson() {
+    return new Gson();
+  }
 }
