@@ -1,6 +1,7 @@
 package com.example.ecommercespring.mappers;
 
 import com.example.ecommercespring.dto.ProductDTO;
+import com.example.ecommercespring.entity.Category;
 import com.example.ecommercespring.entity.Product;
 
 public class ProductMapper {
@@ -16,12 +17,12 @@ public class ProductMapper {
                 .discount(product.getDiscount())
                 .model(product.getModel())
                 .title(product.getTitle())
-                .category(product.getCategory())
+                .categoryId(product.getCategory().getId())
                 .brand(product.getBrand())
                 .popular(product.isPopular())
                 .build();
     }
-    public static Product toEntity(ProductDTO dto)
+    public static Product toEntity(ProductDTO dto, Category category)
     {
         return Product.builder()
                 .image(dto.getImage())
@@ -31,7 +32,7 @@ public class ProductMapper {
                 .discount(dto.getDiscount())
                 .model(dto.getModel())
                 .title(dto.getTitle())
-                .category(dto.getCategory())
+                .category(category)
                 .brand(dto.getBrand())
                 .popular(dto.isPopular())
                 .build();
