@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
-@Service
+@Service("productService")
 public class ProductService implements IProductService{
 
     private final ProductRepository productRepository;

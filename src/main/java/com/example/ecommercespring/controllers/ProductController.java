@@ -2,6 +2,7 @@ package com.example.ecommercespring.controllers;
 
 import com.example.ecommercespring.dto.ProductDTO;
 import com.example.ecommercespring.services.IProductService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,8 +13,8 @@ import java.io.IOException;
 public class ProductController {
     private final IProductService productService;
 
-    ProductController(IProductService productService) {
-        this.productService = productService;
+    ProductController(@Qualifier("productService") IProductService concreteClass) {
+        this.productService = concreteClass;
     }
 
     @GetMapping("/{id}")
