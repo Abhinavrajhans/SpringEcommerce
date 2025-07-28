@@ -2,6 +2,7 @@ package com.example.ecommercespring.controllers;
 
 
 import com.example.ecommercespring.dto.CategoryDTO;
+import com.example.ecommercespring.dto.ProductDTO;
 import com.example.ecommercespring.services.ICategoryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,4 +27,5 @@ public class CategoryController {
             List<CategoryDTO> result= this.categoryService.getAllCategories();
             return ResponseEntity.ok().body(result);
     }
+
 }
