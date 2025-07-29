@@ -20,6 +20,7 @@ public class Category extends BaseEntity{
     //one category has many products
     //List does not mean that you're trying to store a list of products inside category table
     //Telling JPA , the relationship is already owned by the product entity. so , just read from there.
+    //mappedBy= category (which is a field in the product Entity)
     @OneToMany(mappedBy = "category" , fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Product> products;
 }

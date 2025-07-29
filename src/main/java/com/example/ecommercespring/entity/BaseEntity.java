@@ -24,7 +24,7 @@ public class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // the primary key is auto generated and auto incremented.
-    //Id is the primary key and we am updating the primary key using the Strategy above mentioned.
+    //Id is the primary key and we are updating the primary key using the Strategy above mentioned.
     private long id;
 
     @CreatedDate

@@ -23,8 +23,8 @@ public class CategoryService implements ICategoryService{
     public List<CategoryDTO> getAllCategories() throws IOException {
         List<CategoryDTO> listOfCategoryDTO = new ArrayList<>();
         for(Category category : this.categoryRepository.findAll()){
-            CategoryDTO entity=CategoryMapper.toDto(category);
-            listOfCategoryDTO.add(entity);
+            CategoryDTO dto=CategoryMapper.toDto(category);
+            listOfCategoryDTO.add(dto);
         }
         return listOfCategoryDTO;
     }
