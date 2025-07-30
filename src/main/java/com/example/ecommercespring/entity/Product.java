@@ -2,6 +2,7 @@
 package com.example.ecommercespring.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
@@ -27,7 +28,8 @@ public class Product  extends BaseEntity{
 
     //Each Product Belong to one category
     //and one category and have many products
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
+    //There are 2 types FetchType.EAGER and FetchType.LAZY
     @JoinColumn(name="category_id",nullable=false)
     private Category category;
 }

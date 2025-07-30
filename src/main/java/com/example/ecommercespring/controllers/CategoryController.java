@@ -20,11 +20,18 @@ public class CategoryController {
     public CategoryController(@Qualifier("categoryService") ICategoryService categoryService) {
         this.categoryService = categoryService;
     }
-
+    // this ? is a generic method signaturre
     @GetMapping
-    public ResponseEntity<List<CategoryDTO>> getAllCategories() throws IOException {
-            List<CategoryDTO> result= this.categoryService.getAllCategories();
-            return ResponseEntity.ok().body(result);
+    public ResponseEntity<?> getAllCategories(@RequestParam(required = false) String name) throws IOException {
+            if(name !=null && !name.isEmpty()){
+                CategoryDTO categoryDTO = this.categoryService.getByName(name);
+                return ResponseEntity.ok().body(categoryDTO);
+            }
+            else{
+                List<CategoryDTO> result= this.categoryService.getAllCategories();
+                return ResponseEntity.ok().body(result);
+            }
+
     }
 
     @PostMapping
