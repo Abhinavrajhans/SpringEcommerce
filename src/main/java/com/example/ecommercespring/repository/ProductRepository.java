@@ -25,7 +25,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     //but we don't know the exact name of the product
     //for such cases we have to make a query
     //nativeQuery = true as it is a raw sql query
-    @Query(value="SELECT * FROM Product WHERE MATCH(name , description) AGAINST (:keyword)",nativeQuery = true)
+
+    @Query(value="Select * FROM product WHERE MATCH(title, description) AGAINST (:keyword)", nativeQuery = true)
     List<Product> searchFullText(@Param("keyword") String keyword);
 
 
@@ -35,6 +36,12 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             @Param("brand") String brand,
             @Param("minPrice") double minPrice
     );
+
+
+
+    //we want to get all the products of a specific category
+    @Query("SELECT p FROM Product p WHERE p.category.id = :categoryId")
+    List<Product> getAllProductsOfACategory(@Param("categoryId") Long categoryId);
 }
 
 

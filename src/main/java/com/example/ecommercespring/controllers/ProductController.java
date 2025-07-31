@@ -38,10 +38,22 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<ProductDTO>> findProductsUsingFilters(
-            @RequestParam(required = false) double minPrice,
-            @RequestParam(required = false) String brand
+            @RequestParam(required = false) Double minPrice,
+            @RequestParam(required = false) String brand,
+            @RequestParam(required = false) String keyword,
+            @RequestParam(required = false) Long categoryId
     ) throws IOException{
-        if(brand !=null && !brand.isEmpty()){
+        if(categoryId!=null)
+        {
+            List<ProductDTO> listOfProducts = this.productService.getAllProductsOfACategory(categoryId);
+            return  ResponseEntity.ok().body(listOfProducts);
+        }
+        else if(keyword!=null && !keyword.isEmpty())
+        {
+            List<ProductDTO> listOfProducts=this.productService.searchProductWithKeywordInNameAndDescription(keyword);
+            return ResponseEntity.ok().body(listOfProducts);
+        }
+        else if(brand !=null && !brand.isEmpty()){
             List<ProductDTO> products = this.productService.searchByBrandAndMinPrice(brand, minPrice);
             return ResponseEntity.ok().body(products);
         }

@@ -40,4 +40,14 @@ public class FakeStoreProductService implements IProductService {
     public List<ProductDTO> searchByBrandAndMinPrice(String brand, double minPrice) throws IOException {
         return List.of();
     }
+
+    @Override
+    public List<ProductDTO> searchProductWithKeywordInNameAndDescription(String keyword) throws IOException {
+        return List.of();
+    }
+
+    @Override
+    public List<ProductDTO> getAllProductsOfACategory(Long categoryId) throws IOException {
+        return List.of();
+    }
 }

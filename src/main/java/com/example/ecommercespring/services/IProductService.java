@@ -12,4 +12,6 @@ public interface IProductService {
     ProductWithCategoryDTO getProductWithCategory(Long id) throws IOException;
     List<ProductDTO> findExpensiveProducts(double price) throws IOException;
     List<ProductDTO> searchByBrandAndMinPrice(String brand,double minPrice) throws IOException;
+    List<ProductDTO> searchProductWithKeywordInNameAndDescription(String keyword) throws IOException;
+    List<ProductDTO> getAllProductsOfACategory(Long categoryId) throws IOException;
 }

@@ -68,4 +68,14 @@ public class ProductService implements IProductService{
         List<Product> listOfProductsByBranchAndMinPrice= this.productRepository.findByBrandAndPrice(brand, minPrice);
         return ProductMapper.toDtoList(listOfProductsByBranchAndMinPrice);
     }
+
+    @Override
+    public List<ProductDTO> searchProductWithKeywordInNameAndDescription(String keyword) throws IOException {
+        return ProductMapper.toDtoList(this.productRepository.searchFullText(keyword));
+    }
+
+    @Override
+    public List<ProductDTO> getAllProductsOfACategory(Long categoryId) throws IOException {
+        return ProductMapper.toDtoList(this.productRepository.getAllProductsOfACategory(categoryId));
+    }
 }
