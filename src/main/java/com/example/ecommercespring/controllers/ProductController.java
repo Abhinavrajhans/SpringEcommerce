@@ -2,10 +2,8 @@ package com.example.ecommercespring.controllers;
 
 import com.example.ecommercespring.dto.ProductDTO;
 import com.example.ecommercespring.dto.ProductWithCategoryDTO;
-import com.example.ecommercespring.exception.ProductNotFoundException;
 import com.example.ecommercespring.services.IProductService;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -64,13 +62,4 @@ public class ProductController {
             return ResponseEntity.ok().body(listOfExpensiveProducts);
         }
     }
-
-    @ExceptionHandler(ProductNotFoundException.class)
-    public ResponseEntity<String> handleProductNotFoundException(ProductNotFoundException ex){
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
-    }
-
-    // We can add as many Exception as we want
-    //@ExceptionHandler(ProductDeletionException.class)
-
 }
