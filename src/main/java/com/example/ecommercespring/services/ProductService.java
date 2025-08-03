@@ -4,6 +4,7 @@ import com.example.ecommercespring.dto.ProductDTO;
 import com.example.ecommercespring.dto.ProductWithCategoryDTO;
 import com.example.ecommercespring.entity.Category;
 import com.example.ecommercespring.entity.Product;
+import com.example.ecommercespring.exception.ProductNotFoundException;
 import com.example.ecommercespring.mappers.ProductMapper;
 import com.example.ecommercespring.repository.CategoryRepository;
 import com.example.ecommercespring.repository.ProductRepository;
@@ -30,7 +31,7 @@ public class ProductService implements IProductService{
 //                .map(ProductMapper::toDto)
 //                .orElseThrow(()-> new IOException("Product not Found"));
         Product product = productRepository.findById(id)
-                .orElseThrow(()-> new IOException("Product not found"));
+                .orElseThrow(()-> new ProductNotFoundException("Product with ID " + id + " not found"));
 
         return ProductMapper.toDto(product);
 
