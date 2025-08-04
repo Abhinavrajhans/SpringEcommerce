@@ -8,5 +8,5 @@ public class ProductNotFoundException extends RuntimeException{
 }
 
 //Why Extend RuntimeException ?
-// Marks it an unchecked exception . Benefit of it is Callers are not forces to
+// Marks it an unchecked exception . Benefit of it is Callers are not forced to
 // declare or catch it .
