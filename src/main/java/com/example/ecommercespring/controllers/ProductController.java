@@ -20,7 +20,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDTO> getProductById(@PathVariable Long id) throws IOException {
+    public ResponseEntity<ProductDTO> getProductById(@PathVariable Long id)  {
         ProductDTO result= this.productService.getProductById(id);
         return ResponseEntity.ok().body(result);
     }

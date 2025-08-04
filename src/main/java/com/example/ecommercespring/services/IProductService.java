@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface IProductService {
-    ProductDTO getProductById(Long id) throws IOException;
+    ProductDTO getProductById(Long id) ;
     ProductDTO createProduct(ProductDTO productDTO) throws IOException;
     ProductWithCategoryDTO getProductWithCategory(Long id) throws IOException;
     List<ProductDTO> findExpensiveProducts(double price) throws IOException;

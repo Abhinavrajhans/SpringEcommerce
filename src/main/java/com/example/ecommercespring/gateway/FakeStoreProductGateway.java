@@ -15,11 +15,7 @@ public class FakeStoreProductGateway implements IProductGateway {
     }
 
     @Override
-    public ProductDTO getProductById(Long id) throws IOException {
-        FakeStoreProductResponseDTO response = this.fakeStoreProductApi.getFakeProduct(id).execute().body();
-        if (response==null){
-            throw new IOException ("Product Not Found");
-        }
-        return response.getProduct();
+    public ProductDTO getProductById(Long id)  {
+        return null;
     }
 }

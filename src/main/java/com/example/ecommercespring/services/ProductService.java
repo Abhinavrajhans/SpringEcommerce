@@ -26,7 +26,7 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public ProductDTO getProductById(Long id) throws IOException {
+    public ProductDTO getProductById(Long id) {
 //        return productRepository.findById(id)
 //                .map(ProductMapper::toDto)
 //                .orElseThrow(()-> new IOException("Product not Found"));
